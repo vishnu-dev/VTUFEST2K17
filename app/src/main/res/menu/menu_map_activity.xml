@@ -1,0 +1,21 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+      xmlns:app="http://schemas.android.com/apk/res-auto"
+      xmlns:tools="http://schemas.android.com/tools"
+      tools:context="com.sirmvit.vtufest2k17.MapsActivity" >
+
+    <!-- Setting -->
+    <item
+        android:id="@+id/action_setting"
+        android:icon="@drawable/settings_vector"
+        android:title="@string/settings"
+        app:showAsAction="ifRoom"
+        />
+
+    <!-- About -->
+    <item
+        android:id="@+id/action_about"
+        android:icon="@drawable/about_vector"
+        android:title="@string/about"
+        app:showAsAction="ifRoom"/>
+
+</menu>

@@ -1,11 +1,15 @@
 package com.sirmvit.vtufest2k17;
 
+import android.content.DialogInterface;
 import android.content.res.Resources;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
@@ -33,6 +37,31 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.menu_map_activity, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle action bar item clicks here. The action bar will
+        // automatically handle clicks on the Home/Up button, so long
+        // as you specify a parent activity in AndroidManifest.xml.
+        int id = item.getItemId();
+
+        //noinspection SimplifiableIfStatement
+        if (id == R.id.action_about) {
+            return true;
+        }
+        if(id == R.id.action_setting) {
+            return true;
+        }
+
+        return super.onOptionsItemSelected(item);
     }
 
 
@@ -68,23 +97,40 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
         Bitmap gpsMarker = BitmapFactory.decodeResource(getResources(),R.drawable.marker_vector);
         BitmapDescriptor iconGpsMaker = BitmapDescriptorFactory.fromBitmap(gpsMarker);
 
-        List<MapsItem> list = MapsContent.ITEMS;
+        //Place MArkers
+        final List<MapsItem> list = MapsContent.ITEMS;
         for(int i=0; i<list.size();i++) {
             MapsItem current = list.get(i);
-            if(i==0) {
-                mMap.addMarker(new MarkerOptions().position(current.position).title(current.title)).showInfoWindow();
-            }
-            else {
-                mMap.addMarker(new MarkerOptions().position(current.position).title(current.title));
+            mMap.addMarker(new MarkerOptions().position(current.position).title(current.title));
+            if(i == 0) {
+                CameraPosition cameraPosition = new CameraPosition.Builder()
+                        .target(current.position)
+                        .zoom(18)
+                        .bearing(270)
+                        .tilt(60)
+                        .build();
+                mMap.animateCamera(CameraUpdateFactory.newCameraPosition(cameraPosition));
             }
         }
-        CameraPosition cameraPosition = new CameraPosition.Builder()
-                .target(list.get(0).position)
-                .zoom(18)
-                .bearing(270)
-                .tilt(60)
-                .build();
-        mMap.animateCamera(CameraUpdateFactory.newCameraPosition(cameraPosition));
     }
 
+    @Override
+    public void onBackPressed() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setMessage("Are you sure you want to exit?")
+                .setCancelable(false)
+                .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        MapsActivity.this.finish();
+                    }
+                })
+                .setNegativeButton("No", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        dialog.cancel();
+                    }
+                });
+        AlertDialog alert = builder.create();
+        alert.show();
+
+    }
 }

@@ -22,4 +22,8 @@
     <string name="title_science">Science Block</string>
     <string name="title_work">Workshop</string>
 
+    <!--Toolbar Menu-->
+    <string name="about">About</string>
+    <string name="settings">Settings</string>
+
 </resources>
