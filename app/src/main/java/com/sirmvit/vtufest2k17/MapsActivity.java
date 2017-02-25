@@ -1,6 +1,7 @@
 package com.sirmvit.vtufest2k17;
 
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.content.res.Resources;
 import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
@@ -27,6 +28,8 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
 
     private GoogleMap mMap;
     public static final String TAG = MapsActivity.class.getSimpleName();
+    //Data that is shared between the two activities.
+    public static Marker Data = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -76,6 +79,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
     @Override
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
+
         mMap.setOnMarkerClickListener(this);
         mMap.clear();
         //style Map
@@ -114,6 +118,13 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
 
     @Override
     public boolean onMarkerClick(Marker arg0) {
+        Data = arg0;
+        //A toast of which Marker is selected.
+        Toast.makeText(MapsActivity.this, arg0.getTitle(), Toast.LENGTH_SHORT).show();// display toast
+
+        //Start an activity when a marker is selected.
+        Intent i = new Intent(MapsActivity.this, DetailsActivity.class);
+        startActivity(i);
         Toast.makeText(MapsActivity.this, arg0.getTitle(), Toast.LENGTH_SHORT).show();// display toast
         return true;
     }
