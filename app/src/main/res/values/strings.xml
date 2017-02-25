@@ -1,8 +1,15 @@
 <resources>
     <!-- App name -->
     <string name="app_name">VTU FEST 2K17</string>
-    <!-- MapsActivity Fragment -->
+    <!-- MapsActivity -->
     <string name="title_activity_maps">VTU FEST 2K17</string>
+
+    <!-- AboutActivity -->
+    <string name="title_activity_about">About</string>
+    <string name="devnameheader">Developers</string>
+    <string name="name1">Mayank Metha D</string>
+    <string name="name2">Akhil S</string>
+    <string name="versionheader">App Version</string>
 
     <!-- Map Strings -->
     <string name="title_audi">New Auditorium</string>
