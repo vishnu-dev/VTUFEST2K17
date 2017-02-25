@@ -2,8 +2,6 @@ package com.sirmvit.vtufest2k17;
 
 import android.content.DialogInterface;
 import android.content.res.Resources;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
@@ -16,7 +14,6 @@ import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
-import com.google.android.gms.maps.model.BitmapDescriptor;
 import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.CameraPosition;
 import com.google.android.gms.maps.model.MapStyleOptions;
@@ -80,6 +77,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
         mMap.setOnMarkerClickListener(this);
+        mMap.clear();
         //style Map
         try {
             // Customise the styling of the base map using a JSON object defined
@@ -95,15 +93,13 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
             Log.e(TAG, "Can't find style. Error: ", e);
         }
 
-        //Marker icon - Breaks app
-        Bitmap gpsMarker = BitmapFactory.decodeResource(getResources(), R.drawable.marker_vector);
-        BitmapDescriptor iconGpsMaker = BitmapDescriptorFactory.fromBitmap(gpsMarker);
-
-        //Place MArkers
+        //Place Markers
         final List<MapsItem> list = MapsContent.ITEMS;
         for (int i = 0; i < list.size(); i++) {
             MapsItem current = list.get(i);
-            mMap.addMarker(new MarkerOptions().position(current.position).title(current.title));
+            mMap.addMarker(new MarkerOptions().position(current.position)
+                    .title(current.title)
+                    .icon(BitmapDescriptorFactory.fromResource(R.drawable.marker_vector)));
             if (i == 0) {
                 CameraPosition cameraPosition = new CameraPosition.Builder()
                         .target(current.position)
