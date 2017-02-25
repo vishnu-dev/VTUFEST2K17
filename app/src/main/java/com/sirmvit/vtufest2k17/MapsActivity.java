@@ -10,6 +10,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Toast;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
@@ -19,12 +20,13 @@ import com.google.android.gms.maps.model.BitmapDescriptor;
 import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.CameraPosition;
 import com.google.android.gms.maps.model.MapStyleOptions;
+import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 
 import java.util.List;
 
 
-public class MapsActivity extends AppCompatActivity implements OnMapReadyCallback {
+public class MapsActivity extends AppCompatActivity implements OnMapReadyCallback , GoogleMap.OnMarkerClickListener {
 
     private GoogleMap mMap;
     public static final String TAG = MapsActivity.class.getSimpleName();
@@ -57,7 +59,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
         if (id == R.id.action_about) {
             return true;
         }
-        if(id == R.id.action_setting) {
+        if (id == R.id.action_setting) {
             return true;
         }
 
@@ -75,9 +77,9 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
      * installed Google Play services and returned to the app.
      */
     @Override
-    public void onMapReady(GoogleMap googleMap){
+    public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
-
+        mMap.setOnMarkerClickListener(this);
         //style Map
         try {
             // Customise the styling of the base map using a JSON object defined
@@ -94,15 +96,15 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
         }
 
         //Marker icon - Breaks app
-        Bitmap gpsMarker = BitmapFactory.decodeResource(getResources(),R.drawable.marker_vector);
+        Bitmap gpsMarker = BitmapFactory.decodeResource(getResources(), R.drawable.marker_vector);
         BitmapDescriptor iconGpsMaker = BitmapDescriptorFactory.fromBitmap(gpsMarker);
 
         //Place MArkers
         final List<MapsItem> list = MapsContent.ITEMS;
-        for(int i=0; i<list.size();i++) {
+        for (int i = 0; i < list.size(); i++) {
             MapsItem current = list.get(i);
             mMap.addMarker(new MarkerOptions().position(current.position).title(current.title));
-            if(i == 0) {
+            if (i == 0) {
                 CameraPosition cameraPosition = new CameraPosition.Builder()
                         .target(current.position)
                         .zoom(18)
@@ -112,6 +114,12 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
                 mMap.animateCamera(CameraUpdateFactory.newCameraPosition(cameraPosition));
             }
         }
+    }
+
+    @Override
+    public boolean onMarkerClick(Marker arg0) {
+        Toast.makeText(MapsActivity.this, arg0.getTitle(), Toast.LENGTH_SHORT).show();// display toast
+        return true;
     }
 
     @Override
@@ -133,4 +141,5 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
         alert.show();
 
     }
+
 }
