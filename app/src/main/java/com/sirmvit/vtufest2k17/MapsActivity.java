@@ -121,9 +121,6 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
     @Override
     public boolean onMarkerClick(Marker arg0) {
         Data = arg0;
-        //A toast of which Marker is selected.
-        Toast.makeText(MapsActivity.this, arg0.getTitle(), Toast.LENGTH_SHORT).show();// display toast
-
         //Start an activity when a marker is selected.
         Intent i = new Intent(MapsActivity.this, DetailsActivity.class);
         startActivity(i);
