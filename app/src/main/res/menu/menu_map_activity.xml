@@ -8,8 +8,7 @@
         android:id="@+id/action_setting"
         android:icon="@drawable/settings_vector"
         android:title="@string/settings"
-        app:showAsAction="ifRoom"
-        />
+        app:showAsAction="ifRoom"/>
 
     <!-- About -->
     <item
