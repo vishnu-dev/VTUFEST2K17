@@ -28,21 +28,27 @@
             android:textSize="20sp"/>
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:gravity="center_vertical|center_horizontal"
             android:orientation="horizontal">
-        <TextView
-            android:text="@string/name1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/dname1"/>
 
-        <TextView
-            android:text="@string/name2"
-            android:layout_width="wrap_content"
-            android:layout_marginLeft="20dp"
-            android:layout_height="wrap_content"
-            android:id="@+id/dename2"/>
+            <TextView
+                android:text="@string/name1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/dname1"
+                android:paddingEnd="10dp"
+                android:paddingRight="10dp"
+                tools:ignore="RtlSymmetry"/>
+
+            <TextView
+                android:text="@string/name2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/dename2"
+                android:paddingStart="10dp"
+                android:paddingLeft="10dp"
+                tools:ignore="RtlSymmetry"/>
 
         </LinearLayout>
 
