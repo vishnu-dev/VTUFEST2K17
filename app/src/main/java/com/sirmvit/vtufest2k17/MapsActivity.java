@@ -3,6 +3,10 @@ package com.sirmvit.vtufest2k17;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.res.Resources;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.Canvas;
+import android.graphics.Matrix;
 import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
@@ -20,6 +24,7 @@ import com.google.android.gms.maps.model.CameraPosition;
 import com.google.android.gms.maps.model.MapStyleOptions;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
+import com.google.maps.android.ui.IconGenerator;
 
 import java.util.List;
 
@@ -84,6 +89,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
 
         mMap.setOnMarkerClickListener(this);
         mMap.clear();
+
         //style Map
         try {
             // Customise the styling of the base map using a JSON object defined
@@ -103,9 +109,10 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
         final List<MapsItem> list = MapsContent.ITEMS;
         for (int i = 0; i < list.size(); i++) {
             MapsItem current = list.get(i);
+            //style Marker
             mMap.addMarker(new MarkerOptions().position(current.position)
                     .title(current.title)
-                    .icon(BitmapDescriptorFactory.fromResource(R.drawable.marker_vector)));
+                    .icon(BitmapDescriptorFactory.fromBitmap(getMarker(current.title))));
             if (i == 0) {
                 CameraPosition cameraPosition = new CameraPosition.Builder()
                         .target(current.position)
@@ -116,6 +123,26 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
                 mMap.animateCamera(CameraUpdateFactory.newCameraPosition(cameraPosition));
             }
         }
+    }
+
+    private Bitmap getMarker(String str){
+        //text style
+        IconGenerator iconfactory = new IconGenerator(this);
+        iconfactory.setTextAppearance(R.style.MapLabel);
+        iconfactory.setBackground(null);
+        //get marker bitmap
+        Bitmap base = BitmapFactory.decodeResource(getResources(),R.drawable.marker_vector);
+        //generate text as bitmap
+        Bitmap text = iconfactory.makeIcon(str);
+        //final marker
+        Bitmap send = Bitmap.createBitmap(text.getWidth(),base.getHeight(),base.getConfig());
+        //overlay text on base
+        Canvas canvas = new Canvas(send);
+        float left = (float) (text.getWidth()*0.5-base.getWidth()*0.5);
+        float top = (float) (base.getHeight()*0.5-text.getHeight()*0.5);
+        canvas.drawBitmap(base,left,top,null);
+        canvas.drawBitmap(text, new Matrix(), null);
+        return send;
     }
 
     @Override
