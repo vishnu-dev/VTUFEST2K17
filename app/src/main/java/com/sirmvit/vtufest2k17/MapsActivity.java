@@ -96,7 +96,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
             // in a raw resource file.
             boolean success = googleMap.setMapStyle(
                     MapStyleOptions.loadRawResourceStyle(
-                            this, R.raw.style_json));
+                            this, R.raw.style_json_retro));
 
             if (!success) {
                 Log.e(TAG, "Style parsing failed.");
