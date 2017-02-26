@@ -11,6 +11,6 @@ public class DetailsActivity extends AppCompatActivity {
         setContentView(R.layout.activity_details);
 
         //This is done to change the title of the activity depending on the marker selected.
-        setTitle(String.format(MapsActivity.Data.getTitle()));
+        setTitle(MapsActivity.Data.getTitle());
     }
 }
