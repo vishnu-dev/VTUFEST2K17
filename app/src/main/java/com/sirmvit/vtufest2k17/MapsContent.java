@@ -15,7 +15,7 @@ public class MapsContent {
     private static final LatLng LOC_SCIENCE = new LatLng(13.150812d, 77.609026d); //sci block - 2
     private static final LatLng LOC_NB = new LatLng(13.150893d, 77.610195d); //new block - 3
     private static final LatLng LOC_NA = new LatLng(13.151428d, 77.607093d); // new audi - 4
-    private static final LatLng LOC_OA = new LatLng(13.1513653d, 77.607215d); // old audi - 5
+    private static final LatLng LOC_OA = new LatLng(13.151408d, 77.607293d); // old audi - 5
     private static final LatLng LOC_LIB = new LatLng(13.151283d, 77.608933d); // lib - 6
     private static final LatLng LOC_PL = new LatLng(13.150273d, 77.609734d); // parking ground - 7
     private static final LatLng LOC_CS = new LatLng(13.151042d, 77.608881d); //coffee - 8
