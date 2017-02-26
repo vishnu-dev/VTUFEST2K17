@@ -135,11 +135,13 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
         //generate text as bitmap
         Bitmap text = iconfactory.makeIcon(str);
         //final marker
-        Bitmap send = Bitmap.createBitmap(text.getWidth(),base.getHeight(),base.getConfig());
+        //Bitmap send = Bitmap.createBitmap(text.getWidth(),base.getHeight(),base.getConfig()); - old, DON'T DELETE
+        Bitmap send = Bitmap.createBitmap(text.getWidth(),(text.getHeight()+base.getHeight()),base.getConfig());
         //overlay text on base
         Canvas canvas = new Canvas(send);
         float left = (float) (text.getWidth()*0.5-base.getWidth()*0.5);
-        float top = (float) (base.getHeight()*0.5-text.getHeight()*0.5);
+        //float top = (float) (base.getHeight()*0.5-text.getHeight()*0.5); - old, DON'T DELETE
+        float top = (float) (text.getHeight()*0.5);
         canvas.drawBitmap(base,left,top,null);
         canvas.drawBitmap(text, new Matrix(), null);
         return send;
