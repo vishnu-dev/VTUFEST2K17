@@ -172,4 +172,33 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
 
     }
 
+    @Override
+    public void onStart() {
+        super.onStart();
+        //TODO:Uncomment when FirstRunActivity is done designing
+        /*
+        Boolean isFirstRun = getSharedPreferences("PREFERENCE", MODE_PRIVATE).getBoolean("isFirstRun", true);
+        if(isFirstRun) {
+            startActivity(new Intent(MapsActivity.this, FirstRunActivity.class));
+            Toast.makeText(MapsActivity.this, "First Run", Toast.LENGTH_SHORT).show();
+        }
+        getSharedPreferences("PREFERENCE",MODE_PRIVATE).edit().putBoolean("isFirstRun",false).apply();
+        */
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+    }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+    }
+
 }

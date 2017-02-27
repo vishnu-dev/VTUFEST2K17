@@ -42,6 +42,8 @@
         <activity android:name=".DetailsActivity"/>
         <activity android:name=".AboutActivity">
         </activity>
+        <activity android:name=".FirstRunActivity">
+        </activity>
     </application>
 
 </manifest>
