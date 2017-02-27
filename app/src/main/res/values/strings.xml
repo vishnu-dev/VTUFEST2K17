@@ -34,6 +34,16 @@
     <string name="settings">Settings</string>
 
     <!--FirstRunActivity-->
-
+    <string name="next">NEXT</string>
+    <string name="skip">SKIP</string>
+    <string name="start">START</string>
+    <string name="slide_1_title">WELCOME</string>
+    <string name="slide_1_desc">Lets get started!</string>
+    <string name="slide_2_title">Title2</string>
+    <string name="slide_2_desc">Desc2</string>
+    <string name="slide_3_title">Title3</string>
+    <string name="slide_3_desc">Desc3</string>
+    <string name="slide_4_title">Title4</string>
+    <string name="slide_4_desc">Desc4</string>
 
 </resources>
