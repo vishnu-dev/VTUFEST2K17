@@ -34,11 +34,14 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
     public static final String TAG = MapsActivity.class.getSimpleName();
     //Data that is shared between the two activities.
     public static Marker Data = null;
-    Boolean isFirstRun = getSharedPreferences("PREFERENCE", MODE_PRIVATE).getBoolean("isFirstRun", true);
+    private PrefManager mPrefManager;
+    Boolean isInitLaunch;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        mPrefManager = new PrefManager(this);
+        isInitLaunch = mPrefManager.isFirstTimeLaunch();
         setContentView(R.layout.activity_maps);
         // Obtain the SupportMapFragment and get notified when the map is ready to be used.
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
@@ -68,7 +71,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
         }
         if(id == R.id.action_reset) {
             //reset SharedPreference
-            getSharedPreferences("PREFERENCE",MODE_PRIVATE).edit().putBoolean("isFirstRun",true).apply();
+            mPrefManager.setFirstTimeLaunch(true);
             //restart app
             Intent i = getBaseContext().getPackageManager()
                     .getLaunchIntentForPackage( getBaseContext().getPackageName() );
@@ -185,12 +188,11 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
     @Override
     public void onStart() {
         super.onStart();
-        //TODO:Uncomment when FirstRunActivity is done designing
-        if(isFirstRun) {
+        if (isInitLaunch) {
             startActivity(new Intent(MapsActivity.this, FirstRunActivity.class));
             Toast.makeText(MapsActivity.this, "First Run", Toast.LENGTH_SHORT).show();
         }
-        getSharedPreferences("PREFERENCE",MODE_PRIVATE).edit().putBoolean("isFirstRun",false).apply();
+        mPrefManager.setFirstTimeLaunch(false);
     }
 
     @Override
