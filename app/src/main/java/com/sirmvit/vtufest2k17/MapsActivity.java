@@ -190,6 +190,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
         super.onStart();
         if (isInitLaunch) {
             startActivity(new Intent(MapsActivity.this, FirstRunActivity.class));
+            finish();
             Toast.makeText(MapsActivity.this, "First Run", Toast.LENGTH_SHORT).show();
         }
         mPrefManager.setFirstTimeLaunch(false);
