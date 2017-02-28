@@ -8,12 +8,14 @@ import android.widget.TextView;
 
 public class AboutActivity extends AppCompatActivity {
 
+    PackageInfo packageInfo;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_about);
         setTitle(R.string.title_activity_about);
-        PackageInfo packageInfo = null;
+
         try {
             packageInfo = getPackageManager().getPackageInfo(getPackageName(),0);
         } catch (PackageManager.NameNotFoundException e) {

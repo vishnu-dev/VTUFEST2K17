@@ -31,14 +31,17 @@ import java.util.List;
 
 public class MapsActivity extends AppCompatActivity implements OnMapReadyCallback , GoogleMap.OnMarkerClickListener {
 
-    private GoogleMap mMap;
     public static final String TAG = MapsActivity.class.getSimpleName();
     //Data that is shared between the two activities.
     public static Marker Data = null;
+    private PrefManager mPrefManager;
+    Boolean isInitLaunch;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        mPrefManager = new PrefManager(this);
+        isInitLaunch = mPrefManager.isFirstTimeLaunch();
         setContentView(R.layout.activity_maps);
         // Obtain the SupportMapFragment and get notified when the map is ready to be used.
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
@@ -66,11 +69,17 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
             startActivity(i);
             return true;
         }
-        if (id == R.id.action_setting) {
-            return true;
+        if(id == R.id.action_reset) {
+            //reset SharedPreference
+            mPrefManager.setFirstTimeLaunch(true);
+            //restart app
+            Intent i = getBaseContext().getPackageManager()
+                    .getLaunchIntentForPackage( getBaseContext().getPackageName() );
+            i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+            startActivity(i);
         }
+        return id == R.id.action_setting || super.onOptionsItemSelected(item);
 
-        return super.onOptionsItemSelected(item);
     }
 
 
@@ -85,10 +94,9 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
      */
     @Override
     public void onMapReady(GoogleMap googleMap) {
-        mMap = googleMap;
 
-        mMap.setOnMarkerClickListener(this);
-        mMap.clear();
+        googleMap.setOnMarkerClickListener(this);
+        googleMap.clear();
 
         //style Map
         try {
@@ -110,7 +118,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
         for (int i = 0; i < list.size(); i++) {
             MapsItem current = list.get(i);
             //style Marker
-            mMap.addMarker(new MarkerOptions().position(current.position)
+            googleMap.addMarker(new MarkerOptions().position(current.position)
                     .title(current.title)
                     .icon(BitmapDescriptorFactory.fromBitmap(getMarker(current.title))));
             if (i == 0) {
@@ -120,7 +128,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
                         .bearing(270)
                         .tilt(60)
                         .build();
-                mMap.animateCamera(CameraUpdateFactory.newCameraPosition(cameraPosition));
+                googleMap.animateCamera(CameraUpdateFactory.newCameraPosition(cameraPosition));
             }
         }
     }
@@ -175,6 +183,32 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
         AlertDialog alert = builder.create();
         alert.show();
 
+    }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+        if (isInitLaunch) {
+            startActivity(new Intent(MapsActivity.this, FirstRunActivity.class));
+            finish();
+            Toast.makeText(MapsActivity.this, "First Run", Toast.LENGTH_SHORT).show();
+        }
+        mPrefManager.setFirstTimeLaunch(false);
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+    }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
     }
 
 }

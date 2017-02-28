@@ -5,11 +5,8 @@ import com.google.android.gms.maps.model.LatLng;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Created by mayankmethad on 24/02/17.
- */
 
-public class MapsContent {
+class MapsContent {
 
     private static final LatLng LOC_MVIT = new LatLng(13.15103d, 77.610929d); //gate - 1
     private static final LatLng LOC_SCIENCE = new LatLng(13.150812d, 77.609026d); //sci block - 2
@@ -29,10 +26,14 @@ public class MapsContent {
     private static final LatLng LOC_SUGAR = new LatLng(13.149946d,77.609871d); // Sugarcane - 16
     private static final LatLng LOC_ATM = new LatLng(13.149824d,77.610034d);//atm - 17
     private static final LatLng LOC_CANT = new LatLng(13.149910d,77.610383d); //canteen - 18
-    public static List<MapsItem> ITEMS;
+    static List<MapsItem> ITEMS;
+
+    private static void addItem(MapsItem item) {
+        ITEMS.add(item);
+    }
 
     static{
-        ITEMS = new ArrayList();
+        ITEMS = new ArrayList<>();
         addItem(new MapsItem(1,"MVIT",LOC_MVIT));
         addItem(new MapsItem(2,"Science Block",LOC_SCIENCE));
         addItem(new MapsItem(3,"New Block",LOC_NB));
@@ -51,9 +52,5 @@ public class MapsContent {
         addItem(new MapsItem(16,"Sugarcane Juice Shop",LOC_SUGAR));
         addItem(new MapsItem(17,"ATM",LOC_ATM));
         addItem(new MapsItem(18,"Canteen",LOC_CANT));
-    }
-
-    private static void addItem(MapsItem item) {
-        ITEMS.add(item);
     }
 }
