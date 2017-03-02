@@ -77,8 +77,10 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
                     .getLaunchIntentForPackage( getBaseContext().getPackageName() );
             i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
             startActivity(i);
+            return true;
         }
-        return id == R.id.action_setting || super.onOptionsItemSelected(item);
+        if (super.onOptionsItemSelected(item)) return true;
+        return false;
 
     }
 
@@ -191,9 +193,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
         if (isInitLaunch) {
             startActivity(new Intent(MapsActivity.this, FirstRunActivity.class));
             finish();
-            Toast.makeText(MapsActivity.this, "First Run", Toast.LENGTH_SHORT).show();
         }
-        mPrefManager.setFirstTimeLaunch(false);
     }
 
     @Override

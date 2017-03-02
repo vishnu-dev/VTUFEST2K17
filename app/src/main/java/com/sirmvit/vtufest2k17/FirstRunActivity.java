@@ -25,10 +25,12 @@ public class FirstRunActivity extends AppCompatActivity {
     private LinearLayout dotsLayout;
     private int[] layouts;
     private Button btnSkip,btnNext;
+    private PrefManager mPrefManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        mPrefManager = new PrefManager(this);
         if(Build.VERSION.SDK_INT>=21) {
             getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LAYOUT_STABLE | View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN);
         }
@@ -56,6 +58,7 @@ public class FirstRunActivity extends AppCompatActivity {
         btnSkip.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                mPrefManager.setFirstTimeLaunch(false);
                 launchHomeScreen();
             }
         });
@@ -70,6 +73,7 @@ public class FirstRunActivity extends AppCompatActivity {
                     // move to next screen
                     viewPager.setCurrentItem(current);
                 } else {
+                    mPrefManager.setFirstTimeLaunch(false);
                     launchHomeScreen();
                 }
             }
