@@ -79,8 +79,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
             startActivity(i);
             return true;
         }
-        if (super.onOptionsItemSelected(item)) return true;
-        return false;
+        return super.onOptionsItemSelected(item);
 
     }
 
@@ -99,7 +98,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
 
         googleMap.setOnMarkerClickListener(this);
         googleMap.clear();
-
+        final List<MapsItem> list = MapsContent.ITEMS;
         //style Map
         try {
             // Customise the styling of the base map using a JSON object defined
@@ -116,7 +115,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
         }
 
         //Place Markers
-        final List<MapsItem> list = MapsContent.ITEMS;
+
         for (int i = 0; i < list.size(); i++) {
             MapsItem current = list.get(i);
             //style Marker
@@ -166,6 +165,8 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
         Toast.makeText(MapsActivity.this, arg0.getTitle(), Toast.LENGTH_SHORT).show();// display toast
         return true;
     }
+
+
 
     @Override
     public void onBackPressed() {

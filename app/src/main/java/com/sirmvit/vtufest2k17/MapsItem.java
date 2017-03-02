@@ -6,6 +6,8 @@ class MapsItem {
     public int id;
     public String title;
     LatLng position;
+    //Bitmap image;
+
 
     MapsItem(int id, String title, LatLng position) {
         this.id = id;
