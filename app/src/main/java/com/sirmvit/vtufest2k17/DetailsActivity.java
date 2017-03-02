@@ -5,17 +5,21 @@ import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.v7.app.AppCompatActivity;
 
 public class DetailsActivity extends AppCompatActivity {
-
+    String loc;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_details);
 
+        loc = MapsActivity.Data.getTitle();
 
         CollapsingToolbarLayout mActionBarToolbar = (CollapsingToolbarLayout) findViewById(R.id.collapsingToolbar);
-        mActionBarToolbar.setTitle(MapsActivity.Data.getTitle());
+        mActionBarToolbar.setTitle(loc);
 
-        //This is done to change the title of the activity depending on the marker selected.
-        //setTitle(MapsActivity.Data.getTitle());
-    }
+        //event_details.json to recycleview
+        //EventFeed parses JSON to javaObject
+        //extract data where loc=getTitle
+        //place name,day,time in recycleview
+
+        }
 }
