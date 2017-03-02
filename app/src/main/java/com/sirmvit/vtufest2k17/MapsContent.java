@@ -26,6 +26,7 @@ class MapsContent {
     private static final LatLng LOC_SUGAR = new LatLng(13.149946d,77.609871d); // Sugarcane - 16
     private static final LatLng LOC_ATM = new LatLng(13.149824d,77.610034d);//atm - 17
     private static final LatLng LOC_CANT = new LatLng(13.149910d,77.610383d); //canteen - 18
+    private static final LatLng LOC_BUS = new LatLng(13.1511705d,77.6073934d); //bus depot - 19
     static List<MapsItem> ITEMS;
 
     private static void addItem(MapsItem item) {
@@ -34,7 +35,7 @@ class MapsContent {
 
     static{
         ITEMS = new ArrayList<>();
-        addItem(new MapsItem(1,"MVIT",LOC_MVIT));
+        addItem(new MapsItem(1,"Sir MVIT Entrance",LOC_MVIT));
         addItem(new MapsItem(2,"Science Block",LOC_SCIENCE));
         addItem(new MapsItem(3,"New Block",LOC_NB));
         addItem(new MapsItem(4,"New Auditorium",LOC_NA));
@@ -52,5 +53,6 @@ class MapsContent {
         addItem(new MapsItem(16,"Sugarcane Juice Shop",LOC_SUGAR));
         addItem(new MapsItem(17,"ATM",LOC_ATM));
         addItem(new MapsItem(18,"Canteen",LOC_CANT));
+        addItem(new MapsItem(19,"Sir MVIT Bus Depot",LOC_BUS));
     }
 }
