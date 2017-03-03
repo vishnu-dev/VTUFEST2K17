@@ -16,10 +16,5 @@ public class DetailsActivity extends AppCompatActivity {
         CollapsingToolbarLayout mActionBarToolbar = (CollapsingToolbarLayout) findViewById(R.id.collapsingToolbar);
         mActionBarToolbar.setTitle(loc);
 
-        //event_details.json to recycleview
-        //EventFeed parses JSON to javaObject
-        //extract data where loc=getTitle
-        //place name,day,time in recycleview
-
         }
 }
