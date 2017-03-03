@@ -38,13 +38,13 @@
     <string name="next">NEXT</string>
     <string name="skip">SKIP</string>
     <string name="start">START</string>
-    <string name="slide_1_title">Title1</string>
-    <string name="slide_1_desc">Desc1</string>
-    <string name="slide_2_title">Title2</string>
-    <string name="slide_2_desc">Desc2</string>
-    <string name="slide_3_title">Title3</string>
-    <string name="slide_3_desc">Desc3</string>
-    <string name="slide_4_title">Title4</string>
-    <string name="slide_4_desc">Desc4</string>
+    <string name="slide_1_title">Welcome</string>
+    <string name="slide_1_desc">Lets show you around how to use the app.</string>
+    <string name="slide_2_title">Red Marker</string>
+    <string name="slide_2_desc">The red marker shows the various locations around the college.</string>
+    <string name="slide_3_title">Event List</string>
+    <string name="slide_3_desc">Click on the red marker to view the events at a specific location.</string>
+    <string name="slide_4_title">Ready To Go</string>
+    <string name="slide_4_desc">Click on Start to begin.</string>
 
 </resources>
