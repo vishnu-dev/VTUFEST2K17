@@ -2,10 +2,6 @@ package com.sirmvit.vtufest2k17;
 
 import java.util.ArrayList;
 
-/**
- * Created by mayankmethad on 03/03/17.
- */
-
 public class EventFeed {
     ArrayList<OuterData> eventList = new ArrayList<>();
 
