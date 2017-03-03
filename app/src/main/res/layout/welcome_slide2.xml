@@ -16,7 +16,7 @@
         <ImageView
             android:layout_width="@dimen/img_width_height"
             android:layout_height="@dimen/img_width_height"
-            android:src="@drawable/marker_vector"
+            android:src="@drawable/web_hi_res_512_marker"
             android:contentDescription="@null"/>
 
         <TextView
