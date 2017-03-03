@@ -1,8 +1,8 @@
 <resources>
     <!-- App name -->
-    <string name="app_name">VTU FEST 2K17</string>
+    <string name="app_name">Yuva Kalanjali 2017</string>
     <!-- MapsActivity -->
-    <string name="title_activity_maps">VTU FEST 2K17</string>
+    <string name="title_activity_maps">Yuva Kalanjali 2017</string>
 
     <!-- AboutActivity -->
     <string name="title_activity_about">About</string>
