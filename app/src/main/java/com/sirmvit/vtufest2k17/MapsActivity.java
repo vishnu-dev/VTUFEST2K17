@@ -26,6 +26,8 @@ import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.maps.android.ui.IconGenerator;
 
+import java.io.IOException;
+import java.io.InputStream;
 import java.util.List;
 
 
@@ -34,6 +36,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
     public static final String TAG = MapsActivity.class.getSimpleName();
     //Data that is shared between the two activities.
     public static Marker Data = null;
+    public static String jsonData = null;
     private PrefManager mPrefManager;
     Boolean isInitLaunch;
 
@@ -159,6 +162,9 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
     @Override
     public boolean onMarkerClick(Marker arg0) {
         Data = arg0;
+
+        jsonData = loadJSONFromAsset();
+
         //Start an activity when a marker is selected.
         Intent i = new Intent(MapsActivity.this, DetailsActivity.class);
         startActivity(i);
@@ -210,6 +216,22 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
     @Override
     public void onDestroy() {
         super.onDestroy();
+    }
+
+    public String loadJSONFromAsset() {
+        String json = null;
+        try {
+            InputStream is = getApplicationContext().getResources().openRawResource(R.raw.event_details);
+            int size = is.available();
+            byte[] buffer = new byte[size];
+            is.read(buffer);
+            is.close();
+            json = new String(buffer, "UTF-8");
+        } catch (IOException ex) {
+            ex.printStackTrace();
+            return null;
+        }
+        return json;
     }
 
 }
