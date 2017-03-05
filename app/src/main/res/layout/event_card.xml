@@ -3,15 +3,10 @@
                                     android:id="@+id/eventCard"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
+                                    android:layout_margin="5dp"
                                     android:background="@color/cardview_light_background"
                                     android:padding="5dp"
-                                    android:paddingBottom="5dp"
-                                    android:paddingEnd="5dp"
-                                    android:paddingLeft="5dp"
-                                    android:paddingRight="5dp"
-                                    android:paddingStart="5dp"
-                                    android:paddingTop="5dp"
-                                    app:cardElevation="5dp"
+                                    app:cardElevation="2dp"
                                     app:layout_collapseParallaxMultiplier="1.0">
 
 
@@ -24,6 +19,11 @@
             android:id="@+id/EventTitle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:padding="5dp"
+            android:paddingEnd="5dp"
+            android:paddingLeft="5dp"
+            android:paddingRight="5dp"
+            android:paddingStart="5dp"
             android:text=""
             android:textSize="20sp"/>
 
@@ -36,10 +36,14 @@
                 android:id="@+id/EventDay"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="start"
+                android:layout_gravity="center_vertical|center_horizontal"
                 android:layout_weight="1"
+                android:padding="5dp"
+                android:paddingEnd="5dp"
+                android:paddingLeft="5dp"
+                android:paddingRight="5dp"
+                android:paddingStart="5dp"
                 android:text=""
-                android:textAlignment="textStart"
                 android:textColor="@android:color/darker_gray"
                 android:textStyle="normal|italic"/>
 
@@ -47,10 +51,14 @@
                 android:id="@+id/EventTime"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="end"
+                android:layout_gravity="center_vertical|center_horizontal"
                 android:layout_weight="1"
+                android:padding="5dp"
+                android:paddingEnd="5dp"
+                android:paddingLeft="5dp"
+                android:paddingRight="5dp"
+                android:paddingStart="5dp"
                 android:text=""
-                android:textAlignment="textEnd"
                 android:textColor="@android:color/darker_gray"
                 android:textStyle="normal|italic"/>
         </LinearLayout>
