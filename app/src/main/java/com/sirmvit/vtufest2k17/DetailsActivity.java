@@ -82,7 +82,6 @@ public class DetailsActivity extends AppCompatActivity {
                 switch(current.id) {
                     case 1 : bitmap = BitmapFactory.decodeResource(getResources(),R.raw.demo);
                         break;
-                    default : bitmap = BitmapFactory.decodeResource(getResources(),R.drawable.demo);
                 }
             }
         }
