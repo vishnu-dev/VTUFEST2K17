@@ -1,5 +1,10 @@
 apply plugin: 'com.android.application'
 
+def gitVersion() {
+    def process = "git rev-list master --count".execute()
+    return process.text.toInteger()
+}
+
 android {
     compileSdkVersion 25
     buildToolsVersion "25.0.2"
@@ -7,7 +12,7 @@ android {
         applicationId "com.sirmvit.vtufest2k17"
         minSdkVersion 14
         targetSdkVersion 25
-        versionCode 69
+        versionCode gitVersion()
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
         multiDexEnabled true
