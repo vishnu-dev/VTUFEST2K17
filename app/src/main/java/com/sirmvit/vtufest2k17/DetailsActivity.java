@@ -74,16 +74,36 @@ public class DetailsActivity extends AppCompatActivity {
     //get image
     Bitmap getImage(String str) {
         //default image
+        int res=1;
         Bitmap bitmap = BitmapFactory.decodeResource(getResources(),R.raw.demo);
         for (int i = 0; i < mMapsItems.size(); i++) {
             MapsItem current = mMapsItems.get(i);
             //get image for specific loc
             if (current.title.equals(str)) {
-                switch(current.id) {
-                    case 1 : bitmap = BitmapFactory.decodeResource(getResources(),R.raw.demo);
-                        break;
-                }
+                res = current.id;
+                break;
             }
+        }
+        switch(res) {
+            case 0 : BitmapFactory.decodeResource(getResources(),R.raw.demo); break;
+            case 1 : BitmapFactory.decodeResource(getResources(),R.raw.demo); break;
+            case 2 : BitmapFactory.decodeResource(getResources(),R.raw.demo); break;
+            case 3 : BitmapFactory.decodeResource(getResources(),R.raw.demo); break;
+            case 4 : BitmapFactory.decodeResource(getResources(),R.raw.demo); break;
+            case 5 : BitmapFactory.decodeResource(getResources(),R.raw.demo); break;
+            case 6 : BitmapFactory.decodeResource(getResources(),R.raw.demo); break;
+            case 7 : BitmapFactory.decodeResource(getResources(),R.raw.demo); break;
+            case 8 : BitmapFactory.decodeResource(getResources(),R.raw.demo); break;
+            case 9 : BitmapFactory.decodeResource(getResources(),R.raw.demo); break;
+            case 10: BitmapFactory.decodeResource(getResources(),R.raw.demo); break;
+            case 11: BitmapFactory.decodeResource(getResources(),R.raw.demo); break;
+            case 12: BitmapFactory.decodeResource(getResources(),R.raw.demo); break;
+            case 13: BitmapFactory.decodeResource(getResources(),R.raw.demo); break;
+            case 14: BitmapFactory.decodeResource(getResources(),R.raw.demo); break;
+            case 15: BitmapFactory.decodeResource(getResources(),R.raw.demo); break;
+            case 16: BitmapFactory.decodeResource(getResources(),R.raw.demo); break;
+            case 17: BitmapFactory.decodeResource(getResources(),R.raw.demo); break;
+            case 18: BitmapFactory.decodeResource(getResources(),R.raw.demo); break;
         }
         return bitmap;
     }

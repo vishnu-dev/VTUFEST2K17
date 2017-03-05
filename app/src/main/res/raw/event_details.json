@@ -1,20 +1,52 @@
 {
-  "New Block":
-  [
-    {"eventName":"Solo Singing","eventDay":"1","eventTime":"10:30"},
-    {"eventName":"Solo Dancing","eventDay":"2","eventTime":"11:00"},
-    {"eventName":"Group Dancing","eventDay":"3","eventTime":"12:30"}
-  ],
+  "Sir MVIT Entrance":
+  [],
   "Science Block":
   [
     {"eventName":"Battle Of Bands","eventDay":"1","eventTime":"10:30"},
     {"eventName":"Dumb Charades","eventDay":"2","eventTime":"11:00"},
     {"eventName":"Skit","eventDay":"3","eventTime":"12:30"}
   ],
+  "New Block":
+  [
+    {"eventName":"Solo Singing","eventDay":"1","eventTime":"10:30"},
+    {"eventName":"Solo Dancing","eventDay":"2","eventTime":"11:00"},
+    {"eventName":"Group Dancing","eventDay":"3","eventTime":"12:30"}
+  ],
+  "New Auditorium":
+  [],
+  "Old Auditorium":
+  [],
+  "Library":
+  [],
+  "Parking Lot":
+  [],
+  "Coffee Shop":
+  [],
+  "Rolls Corner & Stationary Shop":
+  [],
+  "Mechanical Block":
+  [],
+  "Civil Block":
+  [],
   "MBA Block":
   [
     {"eventName":"Mimicry","eventDay":"1","eventTime":"10:30"},
     {"eventName":"Debate","eventDay":"2","eventTime":"11:00"},
     {"eventName":"Photography","eventDay":"3","eventTime":"12:30"}
-  ]
+  ],
+  "Dental Block":
+  [],
+  "Workshop Block":
+  [],
+  "Grounds":
+  [],
+  "Sugarcane Juice Shop":
+  [],
+  "ATM":
+  [],
+  "Canteen":
+  [],
+  "Sir MVIT Bus Depot":
+  []
 }
