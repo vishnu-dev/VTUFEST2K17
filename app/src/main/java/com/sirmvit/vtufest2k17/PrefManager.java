@@ -16,7 +16,7 @@ class PrefManager {
         SharedPreferences.Editor editor = mSharedPreferences.edit();
         editor.clear();
         editor.putBoolean(isFirstTimeLaunch,isFirstTime);
-        editor.commit();
+        editor.apply();
     }
 
     boolean isFirstTimeLaunch() {

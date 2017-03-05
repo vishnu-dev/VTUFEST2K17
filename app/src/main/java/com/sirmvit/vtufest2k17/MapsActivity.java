@@ -224,6 +224,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
             InputStream is = getApplicationContext().getResources().openRawResource(R.raw.event_details);
             int size = is.available();
             byte[] buffer = new byte[size];
+            //noinspection ResultOfMethodCallIgnored
             is.read(buffer);
             is.close();
             json = new String(buffer, "UTF-8");

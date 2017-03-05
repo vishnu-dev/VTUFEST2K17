@@ -1,7 +1,7 @@
 package com.sirmvit.vtufest2k17;
 
-public class EventItem {
-    public String name;
-    public String day;
-    public String time;
+class EventItem {
+    String name;
+    String day;
+    String time;
 }

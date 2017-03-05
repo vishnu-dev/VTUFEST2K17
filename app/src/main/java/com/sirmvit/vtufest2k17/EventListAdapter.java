@@ -1,5 +1,6 @@
 package com.sirmvit.vtufest2k17;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -10,16 +11,12 @@ import android.widget.TextView;
 import java.util.Collections;
 import java.util.List;
 
-public class EventListAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
-    private Context context;
+class EventListAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     private LayoutInflater mInflater;
-    List<EventItem> data = Collections.emptyList();
-    //EventItem current;
-    int currentPosition = 0;
+    private List<EventItem> data = Collections.emptyList();
 
     // create constructor to init context and data sent from DetailActivity
-    public  EventListAdapter(Context context, List<EventItem> data) {
-        this.context = context;
+    EventListAdapter(Context context, List<EventItem> data) {
         mInflater = LayoutInflater.from(context);
         this.data = data;
     }
@@ -28,11 +25,11 @@ public class EventListAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = mInflater.inflate(R.layout.event_card,parent,false);
-        MyHolder holder = new MyHolder(view);
-        return holder;
+        return new MyHolder(view);
     }
 
     // Bind data
+    @SuppressLint("SetTextI18n")
     @Override
     public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
         MyHolder myHolder = (MyHolder) holder;
@@ -54,7 +51,7 @@ class MyHolder extends RecyclerView.ViewHolder {
     TextView eventDay;
     TextView eventTime;
 
-    public MyHolder(View itemView) {
+    MyHolder(View itemView) {
         super(itemView);
         eventName = (TextView) itemView.findViewById(R.id.EventTitle);
         eventDay = (TextView) itemView.findViewById(R.id.EventDay);

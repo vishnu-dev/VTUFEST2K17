@@ -153,7 +153,7 @@ public class FirstRunActivity extends AppCompatActivity {
 
 
     //View Pager adapter
-    public class MyViewPagerAdapter extends PagerAdapter {
+    private class MyViewPagerAdapter extends PagerAdapter {
         private LayoutInflater layoutInflater;
 
         MyViewPagerAdapter() {

@@ -4,9 +4,10 @@ import android.graphics.Bitmap;
 
 import com.google.android.gms.maps.model.LatLng;
 
+@SuppressWarnings("WeakerAccess")
 class MapsItem {
-    public int id;
-    public String title;
+    int id;
+    String title;
     LatLng position;
     Bitmap image;
 
