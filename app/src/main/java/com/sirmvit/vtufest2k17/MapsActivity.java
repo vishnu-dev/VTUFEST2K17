@@ -13,7 +13,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.Toast;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
@@ -162,13 +161,11 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
     @Override
     public boolean onMarkerClick(Marker arg0) {
         Data = arg0;
-
         jsonData = loadJSONFromAsset();
 
         //Start an activity when a marker is selected.
         Intent i = new Intent(MapsActivity.this, DetailsActivity.class);
         startActivity(i);
-        Toast.makeText(MapsActivity.this, arg0.getTitle(), Toast.LENGTH_SHORT).show();// display toast
         return true;
     }
 

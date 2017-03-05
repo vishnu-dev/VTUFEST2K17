@@ -1,9 +1,5 @@
 package com.sirmvit.vtufest2k17;
 
-import android.content.res.Resources;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-
 import com.google.android.gms.maps.model.LatLng;
 
 import java.util.ArrayList;
@@ -34,33 +30,30 @@ class MapsContent {
     private static final LatLng LOC_BUS = new LatLng(13.1511705d,77.6073934d); //bus depot - 19
     static List<MapsItem> ITEMS;
 
-    //images
-    private static Bitmap demo = BitmapFactory.decodeResource(Resources.getSystem(),R.drawable.demo);
-
     private static void addItem(MapsItem item) {
         ITEMS.add(item);
     }
 
     static{
         ITEMS = new ArrayList<>();
-        addItem(new MapsItem(1,"Sir MVIT Entrance",LOC_MVIT,demo));
-        addItem(new MapsItem(2,"Science Block",LOC_SCIENCE,demo));
-        addItem(new MapsItem(3,"New Block",LOC_NB,demo));
-        addItem(new MapsItem(4,"New Auditorium",LOC_NA,demo));
-        addItem(new MapsItem(5,"Old Auditorium",LOC_OA,demo));
-        addItem(new MapsItem(6,"Library",LOC_LIB,demo));
-        addItem(new MapsItem(7,"Parking Lot",LOC_PL,demo));
-        addItem(new MapsItem(8,"Coffee Shop",LOC_CS,demo));
-        addItem(new MapsItem(9,"Rolls Corner & Stationary Shop",LOC_RS,demo));
-        addItem(new MapsItem(10,"Mechanical Block",LOC_ME,demo));
-        addItem(new MapsItem(11,"Civil Block",LOC_CB,demo));
-        addItem(new MapsItem(12,"MBA Block",LOC_MBA,demo));
-        addItem(new MapsItem(13,"Dental Block",LOC_DEN,demo));
-        addItem(new MapsItem(14,"Workshop Block",LOC_WORK,demo));
-        addItem(new MapsItem(15,"Grounds",LOC_GROUND,demo));
-        addItem(new MapsItem(16,"Sugarcane Juice Shop",LOC_SUGAR,demo));
-        addItem(new MapsItem(17,"ATM",LOC_ATM,demo));
-        addItem(new MapsItem(18,"Canteen",LOC_CANT,demo));
-        addItem(new MapsItem(19,"Sir MVIT Bus Depot",LOC_BUS,demo));
+        addItem(new MapsItem(1,"Sir MVIT Entrance",LOC_MVIT));
+        addItem(new MapsItem(2,"Science Block",LOC_SCIENCE));
+        addItem(new MapsItem(3,"New Block",LOC_NB));
+        addItem(new MapsItem(4,"New Auditorium",LOC_NA));
+        addItem(new MapsItem(5,"Old Auditorium",LOC_OA));
+        addItem(new MapsItem(6,"Library",LOC_LIB));
+        addItem(new MapsItem(7,"Parking Lot",LOC_PL));
+        addItem(new MapsItem(8,"Coffee Shop",LOC_CS));
+        addItem(new MapsItem(9,"Rolls Corner & Stationary Shop",LOC_RS));
+        addItem(new MapsItem(10,"Mechanical Block",LOC_ME));
+        addItem(new MapsItem(11,"Civil Block",LOC_CB));
+        addItem(new MapsItem(12,"MBA Block",LOC_MBA));
+        addItem(new MapsItem(13,"Dental Block",LOC_DEN));
+        addItem(new MapsItem(14,"Workshop Block",LOC_WORK));
+        addItem(new MapsItem(15,"Grounds",LOC_GROUND));
+        addItem(new MapsItem(16,"Sugarcane Juice Shop",LOC_SUGAR));
+        addItem(new MapsItem(17,"ATM",LOC_ATM));
+        addItem(new MapsItem(18,"Canteen",LOC_CANT));
+        addItem(new MapsItem(19,"Sir MVIT Bus Depot",LOC_BUS));
     }
 }
