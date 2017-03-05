@@ -1,20 +1,20 @@
 {
   "New Block":
   [
-    {"eventName":"Solo Singing","eventTime":"10:30"},
-    {"eventName":"Solo Dancing","eventTime":"11:00"},
-    {"eventName":"Group Dancing","eventTime":"12:30"}
+    {"eventName":"Solo Singing","eventDay":"1","eventTime":"10:30"},
+    {"eventName":"Solo Dancing","eventDay":"2","eventTime":"11:00"},
+    {"eventName":"Group Dancing","eventDay":"3","eventTime":"12:30"}
   ],
   "Science Block":
   [
-    {"eventName":"Battle Of Bands","eventTime":"10:30"},
-    {"eventName":"Dumb Charades","eventTime":"11:00"},
-    {"eventName":"Skit","eventTime":"12:30"}
+    {"eventName":"Battle Of Bands","eventDay":"1","eventTime":"10:30"},
+    {"eventName":"Dumb Charades","eventDay":"2","eventTime":"11:00"},
+    {"eventName":"Skit","eventDay":"3","eventTime":"12:30"}
   ],
   "MBA Block":
   [
-    {"eventName":"Mimicry","eventTime":"10:30"},
-    {"eventName":"Debate","eventTime":"11:00"},
-    {"eventName":"Photography","eventTime":"12:30"}
+    {"eventName":"Mimicry","eventDay":"1","eventTime":"10:30"},
+    {"eventName":"Debate","eventDay":"2","eventTime":"11:00"},
+    {"eventName":"Photography","eventDay":"3","eventTime":"12:30"}
   ]
 }

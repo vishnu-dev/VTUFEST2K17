@@ -219,7 +219,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
     }
 
     public String loadJSONFromAsset() {
-        String json = null;
+        String json;
         try {
             InputStream is = getApplicationContext().getResources().openRawResource(R.raw.event_details);
             int size = is.available();
