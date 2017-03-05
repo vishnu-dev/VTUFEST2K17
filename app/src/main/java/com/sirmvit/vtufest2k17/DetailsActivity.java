@@ -41,7 +41,7 @@ public class DetailsActivity extends AppCompatActivity {
                 mEventItem.name = jArray.getJSONObject(i).getString("eventName");
                 mEventItem.day = jArray.getJSONObject(i).getString("eventDay");
                 mEventItem.time = jArray.getJSONObject(i).getString("eventTime");
-                Log.v("Event added: " mEventItem);
+                Log.v("Event added: ", mEventItem.name);
                 data.add(mEventItem);
             }
         }
