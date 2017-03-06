@@ -7,11 +7,12 @@ class MapsItem {
     int id;
     String title;
     LatLng position;
+    LatLng navi;
 
-
-    MapsItem(int id, String title, LatLng position) {
+    MapsItem(int id, String title, LatLng position, LatLng navi) {
         this.id = id;
         this.title = title;
         this.position = position;
+        this.navi = navi;
     }
 }

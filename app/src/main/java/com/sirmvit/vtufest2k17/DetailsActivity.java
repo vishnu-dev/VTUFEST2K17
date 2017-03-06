@@ -7,7 +7,6 @@ import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.widget.ImageView;
 
 import org.json.JSONArray;
@@ -26,6 +25,7 @@ public class DetailsActivity extends AppCompatActivity {
     RecyclerView.Adapter mAdapter;
     final List<MapsItem> mMapsItems = MapsContent.ITEMS;
     Bitmap image;
+    String map = "http://maps.google.co.in/maps?q=";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
