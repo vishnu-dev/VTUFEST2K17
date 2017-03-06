@@ -29,6 +29,7 @@ class MapsContent {
     private static final LatLng LOC_CANT = new LatLng(13.149910,77.610383); //canteen - 17
     private static final LatLng LOC_BUS = new LatLng(13.1511705,77.6073934); //bus depot - 18
     private static final LatLng LOC_AUDIBUS = new LatLng(13.150918,77.607582); //navigation for auditorium and bus depot
+    private static final LatLng LOC_GROUNDNAV = new LatLng(13.149468, 77.606194);//navigation for ground
     static List<MapsItem> ITEMS;
 
     private static void addItem(MapsItem item) {
@@ -45,14 +46,13 @@ class MapsContent {
         addItem(new MapsItem(5,"Library",LOC_LIB,LOC_LIB));
         addItem(new MapsItem(6,"Parking Lot",LOC_PL,LOC_PL));
         addItem(new MapsItem(7,"Coffee Shop",LOC_CS,LOC_CS));
-        addItem(new MapsItem(7,"Coffee Shop",LOC_CS,LOC_CS));
         addItem(new MapsItem(8,"Rolls Corner & Stationary Shop",LOC_RS,LOC_RS));
         addItem(new MapsItem(9,"Mechanical Block",LOC_ME,LOC_ME));
         addItem(new MapsItem(10,"Civil Block",LOC_CB,LOC_CB));
         addItem(new MapsItem(11,"MBA Block",LOC_MBA,LOC_MBA));
         addItem(new MapsItem(12,"Dental Block",LOC_DEN,LOC_DEN));
         addItem(new MapsItem(13,"Workshop Block",LOC_WORK,LOC_WORK));
-        addItem(new MapsItem(14,"Grounds",LOC_GROUND,LOC_GROUND));
+        addItem(new MapsItem(14,"Grounds",LOC_GROUND,LOC_GROUNDNAV));
         addItem(new MapsItem(15,"Sugarcane Juice Shop",LOC_SUGAR,LOC_SUGAR));
         addItem(new MapsItem(16,"ATM",LOC_ATM,LOC_ATM));
         addItem(new MapsItem(17,"Canteen",LOC_CANT,LOC_CANT));

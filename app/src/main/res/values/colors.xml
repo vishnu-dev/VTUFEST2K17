@@ -3,7 +3,7 @@
     <!-- App Theme -->
     <color name="colorPrimary">#8bc34a</color>
     <color name="colorPrimaryDark">#689f38</color>
-    <color name="colorAccent">#FF5252</color>
+    <color name="colorAccent">#ff5252</color>
 
     <!-- Welcome Screen -->
     <!-- Screens background color-->

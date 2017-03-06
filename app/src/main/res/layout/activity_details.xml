@@ -57,4 +57,16 @@
             android:clipToPadding="false"/>
     </android.support.v4.widget.NestedScrollView>
 
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/nav_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        android:layout_margin="16dp"
+        android:clickable="true"
+        android:src="@drawable/navigation_vector"
+        app:backgroundTint="@color/colorAccent"
+        app:elevation="5dp"
+        app:rippleColor="@color/colorPrimary"/>
+
 </android.support.design.widget.CoordinatorLayout>

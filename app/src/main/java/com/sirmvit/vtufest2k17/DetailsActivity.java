@@ -1,13 +1,19 @@
 package com.sirmvit.vtufest2k17;
 
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.CollapsingToolbarLayout;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.View;
 import android.widget.ImageView;
+
+import com.google.android.gms.maps.model.LatLng;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -25,7 +31,7 @@ public class DetailsActivity extends AppCompatActivity {
     RecyclerView.Adapter mAdapter;
     final List<MapsItem> mMapsItems = MapsContent.ITEMS;
     Bitmap image;
-    String map = "http://maps.google.co.in/maps?q=";
+    String map;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -67,13 +73,26 @@ public class DetailsActivity extends AppCompatActivity {
         mAdapter = new EventListAdapter(DetailsActivity.this,data);
         recyclerView.setAdapter(mAdapter);
 
+        FloatingActionButton navifab = (FloatingActionButton) findViewById(R.id.nav_button);
+        navifab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                LatLng latlng = getLoc(loc);
+                map = "http://maps.google.co.in/maps?q=loc:"+latlng.latitude+","+latlng.longitude+"("+"Destination"+")";
+                Intent intent = new Intent(android.content.Intent.ACTION_VIEW, Uri.parse(map));
+                intent.setClassName("com.google.android.apps.maps", "com.google.android.maps.MapsActivity");
+                startActivity(intent);
+
+            }
+        });
+
 
     }
 
     //get image
     Bitmap getImage(String str) {
         //default image
-        int res=1;
+        int res=-1;
         Bitmap bitmap = BitmapFactory.decodeResource(getResources(),R.raw.demo);
         for (int i = 0; i < mMapsItems.size(); i++) {
             MapsItem current = mMapsItems.get(i);
@@ -105,5 +124,17 @@ public class DetailsActivity extends AppCompatActivity {
             case 18: BitmapFactory.decodeResource(getResources(),R.raw.demo); break;
         }
         return bitmap;
+    }
+
+    LatLng getLoc(String str) {
+        int res=-1;
+        for(int i = 0; i< mMapsItems.size();i++) {
+            MapsItem current = mMapsItems.get(i);
+            if(current.title.equals(str)) {
+                res = current.id;
+                break;
+            }
+        }
+        return mMapsItems.get(res).navi;
     }
 }
